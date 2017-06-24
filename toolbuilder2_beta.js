@@ -132,20 +132,20 @@ function drawMultimedia(input) {
             end: "}",
             content: input
         });
-    var youtube = getValue({
-            start: "youtube{",
+    var iframe = getValue({
+            start: "iframe{",
             end: "}",
             content: input
         });
     var output = "";
-    if(youtube !== ""){
-        output = "<iframe width='420' height='315' src='"+ src + "'></iframe>"
+    if(iframe !== ""){
+        output = "<iframe width='420' height='315' src='"+ iframe + "'></iframe>"
     } else if(video !== ""){
         output = "<video width='320' height='240' controls><source src='"+ video +"'>Your browser does not support the video tag.</video>";
     } else {
         output = "<a href='" + link + "'><img src='" + src + "'></a>";
     }
-    return output;
+    return iframe + output;
 }
 
 function drawValue(value, language, tts, style) {
