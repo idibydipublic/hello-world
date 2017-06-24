@@ -148,7 +148,7 @@ function drawMultimedia(input) {
     } else if(video !== ""){
         output = "<video width='320' height='240' controls><source src='"+ video +"'>Your browser does not support the video tag.</video>";
     } else if(audio !== ""){
-        output = "<audio controls><source src='" + audio + " type='audio/mpeg'>Your browser does not support the audio element.</audio>";
+        output = "<audio controls><source src='" + audio + "' type='audio/mpeg'>Your browser does not support the audio element.</audio>";
     } else {
         output = "<a href='" + link + "'><img src='" + src + "'></a>";
     }
