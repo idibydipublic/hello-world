@@ -1,4 +1,4 @@
-/*Tranxtech ToolBuilder 2.0 (Beta) | This work is licensed under CC BY-SA 3.0.*/
+/*Tranxtech ToolBuilder 2.0 | This work is licensed under CC BY-SA 3.0.*/
 var setup, drawData, handleQueryResponse, search;
 
 function preg_quote(str) {
@@ -132,9 +132,18 @@ function drawMultimedia(input) {
             end: "}",
             content: input
         });
-    var output = "<a href='" + link + "'><img src='" + src + "'></a>";
-    if(video !== ""){
+    var youtube = getValue({
+            start: "youtube{",
+            end: "}",
+            content: input
+        });
+    var output = "";
+    if(youtube !== ""){
+        output = "<iframe width='420' height='315' src='"+ src + "'></iframe>"
+    } else if(video !== ""){
         output = "<video width='320' height='240' controls><source src='"+ video +"'>Your browser does not support the video tag.</video>";
+    } else {
+        output = "<a href='" + link + "'><img src='" + src + "'></a>";
     }
     return output;
 }
