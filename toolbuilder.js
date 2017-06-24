@@ -66,7 +66,7 @@ function getUI(main) {
 
     var divMessage = "";
 
-    if (main.message_show == "true") {l
+    if (main.message_show == "true") {
         divMessage = "<div data-tranxid='divMessage' " + addStyle(main.message_style) + "align='center'>" + main.message_ready + "</div>";
     }
     var divOutput = "<div " + addStyle(main.output_style) + "data-tranxid='divOutput'></div>";
