@@ -66,7 +66,7 @@ function getUI(main) {
 
     var divMessage = "";
 
-    if (main.message_show == "true") {
+    if (main.message_show == "true") {l
         divMessage = "<div data-tranxid='divMessage' " + addStyle(main.message_style) + "align='center'>" + main.message_ready + "</div>";
     }
     var divOutput = "<div " + addStyle(main.output_style) + "data-tranxid='divOutput'></div>";
@@ -127,7 +127,16 @@ function drawMultimedia(input) {
             end: "}",
             content: input
         });
-    return "<a href='" + link + "'><img src='" + src + "'></a>";
+    var video = getValue({
+            start: "video{",
+            end: "}",
+            content: input
+        });
+    var output = "<a href='" + link + "'><img src='" + src + "'></a>";
+    if(video !== ""){
+        output = "<video width='320' height='240' controls><source src='"+ video +"'>Your browser does not support the video tag.</video>";
+    }
+    return output;
 }
 
 function drawValue(value, language, tts, style) {
@@ -309,7 +318,7 @@ function f(para) {
                 $("[data-tranxid='divMessage']").html(main.message_searching);
 
                 search = $("[data-tranxid='txtInput']").val();
-                if ((search === "") || (search === "")) {
+                if ((search === "") || (search === "") || (search === "#")) {
                     $("[data-tranxid='divMessage']").html(main.message_empty);
                 } else {
                     var searchEncoded = "";
