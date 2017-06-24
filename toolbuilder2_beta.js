@@ -132,6 +132,11 @@ function drawMultimedia(input) {
             end: "}",
             content: input
         });
+    var audio = getValue({
+            start: "audio{",
+            end: "}",
+            content: input
+        });
     var iframe = getValue({
             start: "iframe{",
             end: "}",
@@ -142,10 +147,12 @@ function drawMultimedia(input) {
         output = "<iframe width='420' height='315' src='"+ iframe + "'></iframe>"
     } else if(video !== ""){
         output = "<video width='320' height='240' controls><source src='"+ video +"'>Your browser does not support the video tag.</video>";
+    } else if(audio !== ""){
+        output = "<audio controls><source src='" + audio + " type='audio/mpeg'>Your browser does not support the audio element.</audio>";
     } else {
         output = "<a href='" + link + "'><img src='" + src + "'></a>";
     }
-    return iframe + output;
+    return output;
 }
 
 function drawValue(value, language, tts, style) {
