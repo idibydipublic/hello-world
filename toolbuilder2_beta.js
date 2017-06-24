@@ -1,4 +1,4 @@
-/*Tranxtech ToolBuilder 2.0 | This work is licensed under CC BY-SA 3.0.*/
+/*Tranxtech ToolBuilder 2.0 (Beta) | This work is licensed under CC BY-SA 3.0.*/
 var setup, drawData, handleQueryResponse, search;
 
 function preg_quote(str) {
